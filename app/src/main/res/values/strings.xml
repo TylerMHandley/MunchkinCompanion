@@ -4,4 +4,6 @@
     <string name="title_cards">Cards</string>
     <string name="title_notifications">Notifications</string>
     <string name="combat_power">Combat Power</string>
+    <string name = "nfcAdd">Scan a Card</string>
+    <string name= "scanCard">Swipe your card now</string>
 </resources>

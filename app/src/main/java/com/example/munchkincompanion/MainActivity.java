@@ -54,5 +54,7 @@ public class MainActivity extends AppCompatActivity {
         this.combat_power--;
         combatPowerView.setText(String.valueOf(this.combat_power));
     }
+    public void nfcAdd(View view){
 
+    }
 }
