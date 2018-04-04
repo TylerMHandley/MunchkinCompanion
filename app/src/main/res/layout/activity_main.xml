@@ -46,8 +46,8 @@
 
     <ImageButton
         android:id="@+id/down_arrow"
-        android:layout_width="60"
-        android:layout_height="60"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginEnd="110dp"
         android:layout_marginTop="8dp"
         android:onClick="decreaseCombatPower"
@@ -58,8 +58,8 @@
 
     <ImageButton
         android:id="@+id/up_arrow"
-        android:layout_width="60"
-        android:layout_height="60"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginStart="110dp"
         android:layout_marginTop="8dp"
         android:onClick="increaseCombatPower"
@@ -88,7 +88,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/nfcAdd"
+        android:text="@string/scanCard"
+        android:onClick="nfcAdd"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
