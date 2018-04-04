@@ -1,5 +1,6 @@
 package com.example.munchkincompanion;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -13,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
     private TextView combatPowerView;
     private int combat_power;
+    private Fragment fragment;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
                     mTextMessage.setText(R.string.title_cards);
                     return true;
                 case R.id.navigation_notifications:
+                    fragment = new NotificationFragment();
                     mTextMessage.setText(R.string.title_notifications);
                     return true;
             }
