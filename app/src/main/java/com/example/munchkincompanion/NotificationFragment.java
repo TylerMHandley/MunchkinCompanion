@@ -28,7 +28,7 @@ public class NotificationFragment extends Fragment {
         Log.d("FUCK", "onCreate");
         mNotifications = new ArrayList<String>();
         initDataset();
-        mAdapter = new NotificationAdapter(mNotifications, getContext());
+        mAdapter = new NotificationAdapter(mNotifications, getActivity());
     }
 
     @Override
