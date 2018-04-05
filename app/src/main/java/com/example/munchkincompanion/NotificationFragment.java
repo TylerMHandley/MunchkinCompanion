@@ -26,6 +26,7 @@ public class NotificationFragment extends Fragment {
         // Initialize dataset, this data would usually come from a local content provider or
         // remote server.
         Log.d("FUCK", "onCreate");
+        mNotifications = new ArrayList<String>();
         initDataset();
         mAdapter = new NotificationAdapter(mNotifications, getContext());
     }
@@ -65,7 +66,9 @@ public class NotificationFragment extends Fragment {
     private void initDataset() {
 
         for (int i = 0; i < 60; i++) {
-            mNotifications.add("This is string " + i);
+            String add = "This is notification" + i;
+
+            mNotifications.add(add);
         }
     }
 }

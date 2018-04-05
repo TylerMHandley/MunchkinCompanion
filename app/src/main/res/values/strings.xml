@@ -6,4 +6,15 @@
     <string name="combat_power">Combat Power</string>
     <string name="title_activity_notification">NotificationActivity</string>
     <string name="title_dashboard">Dashboard</string>
+    <string name = "scanCard">Scan a Card</string>
+    <string name= "nfcAddCard">Swipe the card now</string>
+    <string name="addCard">Add a card</string>
+    <string name="numAdd">Enter a number</string>
+    <string name="numHint">4 digit number</string>
+    <string name="picAdd">Point the camera at the card</string>
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
+    <string name="mode1"> Mode 1</string>
+    <string name="mode2"> Mode 2</string>
+    <string name="mode3"> Mode 3</string>
 </resources>
