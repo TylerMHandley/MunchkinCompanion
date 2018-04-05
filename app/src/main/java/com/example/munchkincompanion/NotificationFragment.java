@@ -1,7 +1,10 @@
 package com.example.munchkincompanion;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,6 +26,7 @@ public class NotificationFragment extends Fragment {
     protected NotificationAdapter mAdapter;
     protected LinearLayoutManager mLayoutManager;
     protected ArrayList<String> mNotifications;
+    protected int numAdded = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,7 @@ public class NotificationFragment extends Fragment {
         // remote server.
         Log.d("FUCK", "onCreate");
         mNotifications = new ArrayList<String>();
-        //initDataset();
+        initDataset();
         mAdapter = new NotificationAdapter(mNotifications, getActivity());
     }
 
@@ -75,6 +79,13 @@ public class NotificationFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        NotificationDatabaseHelper dbHelper = new NotificationDatabaseHelper(getActivity());
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        for(int i = numAdded - 1; i >= 0; i--) {
+            ContentValues values = new ContentValues();
+            values.put("item", mNotifications.get(i));
+            db.insert("notifications", null, values);
+        }
     }
 
     @Override
@@ -93,6 +104,7 @@ public class NotificationFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 1 && resultCode == Activity.RESULT_OK) {
             mNotifications.add(0, data.getStringExtra("Notification"));
+            numAdded++;
             mAdapter.notifyDataSetChanged();
         }
     }
@@ -103,10 +115,14 @@ public class NotificationFragment extends Fragment {
      */
     private void initDataset() {
 
-        for (int i = 0; i < 60; i++) {
-            String add = "This is notification" + i;
-
-            mNotifications.add(add);
+        NotificationDatabaseHelper dbHelper = new NotificationDatabaseHelper(getActivity());
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        String [] projection = {"item"};
+        Cursor cursor = db.query("notifications", projection, null, null, null, null, null);
+        while(cursor.moveToNext()) {
+            String item = cursor.getString(cursor.getColumnIndexOrThrow("item"));
+            mNotifications.add(0, item);
         }
+        cursor.close();
     }
 }

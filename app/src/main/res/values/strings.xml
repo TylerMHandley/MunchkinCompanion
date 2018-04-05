@@ -11,7 +11,7 @@
     <string name="addCard">Add a card</string>
     <string name="numAdd">Enter a number</string>
     <string name="numHint">4 digit number</string>
-    <string name="picAdd">Point the camera at the card</string>
+    <string name="picAdd">Card QR code scanned</string>
     <string name="done">Done</string>
     <string name="cancel">Cancel</string>
     <string name="mode1"> Mode 1</string>
