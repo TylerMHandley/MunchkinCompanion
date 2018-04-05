@@ -95,8 +95,6 @@ public class MainActivity extends AppCompatActivity {
     return super.onOptionsItemSelected(item);
   }
 
-
-
   public void increaseCombatPower(View view) {
     this.combat_power++;
     combatPowerView.setText(String.valueOf(this.combat_power));
